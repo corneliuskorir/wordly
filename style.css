@@ -1,5 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Merienda:wght@300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=IM+Fell+English:ital@0;1&family=Merienda:wght@300..900&family=Playwrite+NZ:wght@100..400&display=swap");
+
 @import "tailwindcss";
+
+@import "bootstrap-icons";
 
 @theme {
   --color-page-bg: #e2d5c5;
@@ -7,7 +10,9 @@
   --color-border: #577568;
   --color-secondary-bg: #fdf1e2;
 
-  --font-header: "Merienda", sans-serif;
+  --font-header: "Merienda", cursive;
+  --font-search: "Playwrite NZ", cursive;
+  --font-search-word: "IM Fell English", serif;
 }
 
 body {
