@@ -1,4 +1,4 @@
-export function resultComponent(result) {
+export function resultComponent(result, index) {
   return `
 <div class="">
   <div id="searched-word" class="relative font-search-word text-5xl before:absolute before:top-13 before:left-0 before:w-30 before:h-1 before:bg-border">
@@ -18,30 +18,30 @@ export function resultComponent(result) {
       .join("")}
   </div>
 
-  <div class="meanings w-full flex flex-col gap-5 px-5 mt-5">
+  <div class="meanings-${index} w-full flex flex-col gap-5 px-5 mt-5">
 
   </div>
-  
+
 </div>
 `;
 }
 
-function meaningsComponent(meaning) {
+export function meaningsComponent(meaning) {
   return `<div class="parts-of-speech flex flex-col">
       <div class="part-of-speech italic font-bold">${meaning.partOfSpeech}</div>
       <div class="definitions pl-5">
         <ul class="list-decimal flex flex-col gap-4">
         </ul>
       </div>
-      <div class="synonyms text-sm">
-        <p class="italic text-header-text">synonyms</p>
-        <ul class="flex gap-2">
+      <div class="synonyms text-sm italic">
+        <p class="text-header-text">synonyms</p>
+        <ul class="flex flex-wrap gap-2">
         ${meaning.synonyms.map((sy) => `<li>${sy}</li>`).join("")}
         </ul>
       </div>
-      <div class="antonyms text-sm">
-        <p class="italic text-header-text">antonyms</p>
-        <ul class="flex gap-1">
+      <div class="antonyms text-sm italic">
+        <p class="text-header-text">antonyms</p>
+        <ul class="flex flex-wrap gap-1">
         ${meaning.antonyms.map((ant) => `<li>${ant}</li>`).join("")}
        </ul>
       </div>

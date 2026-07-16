@@ -1,6 +1,6 @@
 /* set up and mount the results from the APi */
 
-import { resultComponent } from "./resultComponent";
+import { meaningsComponent, resultComponent } from "./resultComponent";
 
 const URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
@@ -25,11 +25,28 @@ export default async function showResult(word) {
     const data = await response.json();
 
     //Display data to Dom
-    const resultsHtml = data.map((result) => resultComponent(result)).join("");
+    const resultsHtml = data
+      .map((result, index) => resultComponent(result, index))
+      .join("");
     resultArea.innerHTML = resultsHtml;
+    //attach meanings
+    showMeanings(data);
 
     console.log(data);
   } catch (e) {
     console.log(e.message);
   }
+}
+
+function showMeanings(results) {
+  results.forEach((result, index) => {
+    //get meanings div if mounted
+    const meaningsDiv = document.querySelector(`.meanings-${index}`);
+
+    const meaningsHtml = result.meanings
+      .map((meaning) => meaningsComponent(meaning))
+      .join("");
+
+    meaningsDiv.innerHTML = meaningsHtml;
+  });
 }
