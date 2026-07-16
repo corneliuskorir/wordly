@@ -6,7 +6,7 @@ Summative lab: SPA- Wordly
 
 npm install
 
-npm run dev - start vite server
+npm run dev
 
 ## Resources
 

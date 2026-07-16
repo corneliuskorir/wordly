@@ -46,29 +46,29 @@ export function resultComponent(result, index) {
 export function meaningsComponent(meaning, index) {
   return `<div class="parts-of-speech flex flex-col">
       <div class="part-of-speech italic font-bold">${meaning.partOfSpeech}</div>
-      <div class="pl-5 text-lg">
+      <div class="pl-5 pb-5 text-lg">
         <ul class="definitions-${index} list-decimal flex flex-col gap-4">
         </ul>
       </div>
                     ${
-                      !meaning.synonyms.length === 0
+                      !(meaning.synonyms.length === 0)
                         ? `
                   <div class="synonyms text-sm">
               <p class="italic text-header-text">synonyms</p>
               <ul class="flex flex-wrap gap-2">
-                ${definition.synonyms.map((sy) => `<li>${sy}</li>`).join("")}
+                ${meaning.synonyms.map((sy) => `<li>${sy}</li>`).join("")}
               </ul>
             
             </div>`
                         : ""
                     }
               ${
-                !meaning.antonyms.length === 0
+                !(meaning.antonyms.length === 0)
                   ? `
                   <div class="antonyms text-sm">
               <p class="italic text-header-text">antonyms</p>
               <ul class="flex flex-wrap gap-2">
-                 ${definition.antonyms.map((ant) => `<li>${ant}</li>`).join("")}
+                 ${meaning.antonyms.map((ant) => `<li>${ant}</li>`).join("")}
               </ul>
             </div>`
                   : ""
@@ -92,7 +92,7 @@ export function definitionsComponent(definition) {
             }
             
               ${
-                !definition.synonyms.length === 0
+                !(definition.synonyms.length === 0)
                   ? `
                   <div class="synonyms text-sm">
               <p class="italic text-header-text">synonyms</p>
@@ -104,7 +104,7 @@ export function definitionsComponent(definition) {
                   : ""
               }
               ${
-                !definition.antonyms.length === 0
+                !(definition.antonyms.length === 0)
                   ? `
                   <div class="antonyms text-sm">
               <p class="italic text-header-text">antonyms</p>
