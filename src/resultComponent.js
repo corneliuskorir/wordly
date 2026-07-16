@@ -1,0 +1,3 @@
+function resultComponent(result) {
+  return ``;
+}

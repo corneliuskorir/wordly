@@ -1,3 +1,5 @@
+import showResult from "./src/resultDisplay";
+
 /* Make sure dom content is available */
 document.addEventListener("DOMContentLoaded", () => {
   mountItems();
@@ -18,5 +20,11 @@ function mountItems() {
     const word = Object.fromEntries(formData)["word"];
     //log for test
     console.log(word);
+
+    /* Send word to api for search */
+    showResult(word);
+
+    /* clear form */
+    event.target.reset();
   });
 }
