@@ -42,11 +42,11 @@ export default async function showResult(word) {
   }
 }
 
+/* function to display the individual meanings of each word */
 function showMeanings(results) {
   results.forEach((result, index) => {
-    //get meanings div if mounted
     const meaningsDiv = document.querySelector(`.meanings-${index}`);
-
+    //get meanings div if mounted
     const meaningsHtml = result.meanings
       .map((meaning, index) => meaningsComponent(meaning, index))
       .join("");
@@ -58,10 +58,14 @@ function showMeanings(results) {
   });
 }
 
+// todo:: Bug where not all meanings get definitions
+/* function to display the definitions of each meaning */
 function showDefinitions(meanings, selector) {
-  meanings.forEach((meaning) => {
-    //get definitions div
-    const definitionsDiv = document.querySelector(`.${selector} .definitions`);
+  meanings.forEach((meaning, index) => {
+    //get definitions div (takes the specifica selector class from the meaning div to chain with the definitions class)
+    const definitionsDiv = document.querySelector(
+      `.${selector} .definitions-${index}`,
+    );
 
     const definitionsHtml = meaning.definitions
       .map((defin) => definitionsComponent(defin))
