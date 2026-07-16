@@ -1,6 +1,10 @@
 /* set up and mount the results from the APi */
 
-import { meaningsComponent, resultComponent } from "./resultComponent";
+import {
+  definitionsComponent,
+  meaningsComponent,
+  resultComponent,
+} from "./resultComponent";
 
 const URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
@@ -34,7 +38,7 @@ export default async function showResult(word) {
 
     console.log(data);
   } catch (e) {
-    console.log(e.message);
+    console.log(e);
   }
 }
 
@@ -44,9 +48,25 @@ function showMeanings(results) {
     const meaningsDiv = document.querySelector(`.meanings-${index}`);
 
     const meaningsHtml = result.meanings
-      .map((meaning) => meaningsComponent(meaning))
+      .map((meaning, index) => meaningsComponent(meaning, index))
       .join("");
 
     meaningsDiv.innerHTML = meaningsHtml;
+
+    //show definitions
+    showDefinitions(result.meanings, `meanings-${index}`);
+  });
+}
+
+function showDefinitions(meanings, selector) {
+  meanings.forEach((meaning) => {
+    //get definitions div
+    const definitionsDiv = document.querySelector(`.${selector} .definitions`);
+
+    const definitionsHtml = meaning.definitions
+      .map((defin) => definitionsComponent(defin))
+      .join("");
+
+    definitionsDiv.innerHTML = definitionsHtml;
   });
 }

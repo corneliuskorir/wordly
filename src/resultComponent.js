@@ -26,11 +26,11 @@ export function resultComponent(result, index) {
 `;
 }
 
-export function meaningsComponent(meaning) {
+export function meaningsComponent(meaning, index) {
   return `<div class="parts-of-speech flex flex-col">
       <div class="part-of-speech italic font-bold">${meaning.partOfSpeech}</div>
-      <div class="definitions pl-5">
-        <ul class="list-decimal flex flex-col gap-4">
+      <div class="pl-5">
+        <ul class="definitions list-decimal flex flex-col gap-4">
         </ul>
       </div>
       <div class="synonyms text-sm italic">
@@ -48,14 +48,14 @@ export function meaningsComponent(meaning) {
     </div>`;
 }
 
-function definitionsComponent(definition) {
+export function definitionsComponent(definition) {
   return `<li>
             <div class="definition">
               ${definition.definition}
             </div>
             <div class="example pl-2 italic text-border">
               <p class="text-header-text">example</p>
-              ${!definition.example ? definition.example : ""}
+              ${definition.example ? definition.example : ""}
             </div>
             <div class="synonyms text-sm">
               <p class="italic text-header-text">synonyms</p>
