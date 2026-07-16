@@ -11,7 +11,7 @@ export default async function showResult(word) {
   //clear previous search
   resultArea.innerHTML = "";
 
-  /* Retrieve definition from api */
+  /* Retrieve definition from api and display result or error */
   try {
     //throw error if word is number or empty
     if (!word || /^[+-]?\d+(\.\d+)?$/.test(word)) {
