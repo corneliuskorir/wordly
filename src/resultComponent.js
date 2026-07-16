@@ -116,5 +116,17 @@ export function definitionsComponent(definition) {
 }
 
 export function errorComponent() {
-  return ``;
+  /* select random gif to retrn to user when theres an error */
+  const random = Math.floor(Math.random() * errorGif.length);
+  const src = errorGif[random];
+  return `<div class="flex flex-col items-center gap-3 ">
+            <p class="text-lg text-error">Sorry bud! Something's wrong.</p>
+            <div class="w-full max-w-3/4 overflow-hidden rounded-lg">
+              <img
+                class="w-full h-full object-fill"
+                src=${src}
+                alt=""
+              />
+            </div>
+          </div>`;
 }

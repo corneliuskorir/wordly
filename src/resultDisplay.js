@@ -2,6 +2,7 @@
 
 import {
   definitionsComponent,
+  errorComponent,
   meaningsComponent,
   resultComponent,
 } from "./resultComponent";
@@ -38,6 +39,8 @@ export default async function showResult(word) {
 
     console.log(data);
   } catch (e) {
+    resultArea.innerHTML = errorComponent();
+
     console.log(e);
   }
 }
@@ -58,7 +61,6 @@ function showMeanings(results) {
   });
 }
 
-// todo:: Bug where not all meanings get definitions
 /* function to display the definitions of each meaning */
 function showDefinitions(meanings, selector) {
   meanings.forEach((meaning, index) => {
