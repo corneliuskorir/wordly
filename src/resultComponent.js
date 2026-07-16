@@ -13,6 +13,7 @@ const errorGif = [
   "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3o3bWlyem9ydmp3ZmdjZ3cyODMxY2IxNnpjenVxN3loam53dnlrbyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3o7aTskHEUdgCQAXde/giphy.gif",
 ];
 
+/* display individual results */
 export function resultComponent(result, index) {
   return `
 <div class="">
@@ -41,6 +42,7 @@ export function resultComponent(result, index) {
 `;
 }
 
+/* display individual meanings */
 export function meaningsComponent(meaning, index) {
   return `<div class="parts-of-speech flex flex-col">
       <div class="part-of-speech italic font-bold">${meaning.partOfSpeech}</div>
@@ -74,6 +76,7 @@ export function meaningsComponent(meaning, index) {
     </div>`;
 }
 
+/* display definitions */
 export function definitionsComponent(definition) {
   return `<li>
             <div class="definition">
@@ -115,6 +118,7 @@ export function definitionsComponent(definition) {
           </li>`;
 }
 
+/* display errror message and image */
 export function errorComponent() {
   /* select random gif to retrn to user when theres an error */
   const random = Math.floor(Math.random() * errorGif.length);
@@ -125,6 +129,18 @@ export function errorComponent() {
               <img
                 class="w-full h-full object-fill"
                 src=${src}
+                alt=""
+              />
+            </div>
+          </div>`;
+}
+
+/* display laoding indicator when inbetween fetching and displaying state */
+export function loadingIndicator() {
+  return `<div class="flex w-full justify-center">
+            <div class="w-30 h-30 overflow-hidden">
+              <img
+                src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3NnNmYWtqYXQ5dmVwbjltMDBhOXZnMnJoeTV4c3V2cTg4MHhwcHI2biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XPm6fbe5jGveNlHwuU/giphy.gif"
                 alt=""
               />
             </div>

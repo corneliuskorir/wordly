@@ -3,6 +3,7 @@
 import {
   definitionsComponent,
   errorComponent,
+  loadingIndicator,
   meaningsComponent,
   resultComponent,
 } from "./resultComponent";
@@ -15,6 +16,9 @@ export default async function showResult(word) {
   const resultArea = document.querySelector(".result-area");
   //clear previous search
   resultArea.innerHTML = "";
+
+  //diaplay loading indicator when waiting for response
+  resultArea.innerHTML = loadingIndicator();
 
   /* Retrieve definition from api and display result or error */
   try {
@@ -39,6 +43,7 @@ export default async function showResult(word) {
 
     console.log(data);
   } catch (e) {
+    //display error div when failure occurs
     resultArea.innerHTML = errorComponent();
 
     console.log(e);
