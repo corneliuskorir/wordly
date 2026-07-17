@@ -41,6 +41,7 @@ function setTheme() {
       localStorage.theme = "dark";
     }
   }
+  /* Check theme selected in storage or set it to user preference on page load */
   document.documentElement.classList.toggle(
     "dark",
     localStorage.theme === "dark" ||
@@ -48,6 +49,7 @@ function setTheme() {
         window.matchMedia("(prefers-color-scheme: dark)").matches),
   );
 
+  /* use toggle button to change the preference in storage and change page theme */
   toggle.addEventListener("change", (event) => {
     if (event.target.checked) {
       localStorage.theme = "dark";
