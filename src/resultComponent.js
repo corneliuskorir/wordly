@@ -17,7 +17,7 @@ const errorGif = [
 export function resultComponent(result, index) {
   return `
 <div class="">
-  <div id="searched-word" class="relative font-search-word text-4xl before:absolute before:top-11 before:left-0 before:w-30 before:h-1 before:bg-border">
+  <div id="searched-word" class="relative font-search-word text-4xl before:absolute before:top-11 before:left-0 before:w-30 before:h-1 before:bg-border dark:before:bg-border-dark">
     ${result.word}
   </div>
 
@@ -54,7 +54,7 @@ export function meaningsComponent(meaning, index) {
                       !(meaning.synonyms.length === 0)
                         ? `
                   <div class="synonyms text-sm">
-              <p class="italic text-header-text">synonyms</p>
+              <p class="italic text-header-text dark:text-example-dark">synonyms</p>
               <ul class="flex flex-wrap gap-2">
                 ${meaning.synonyms.map((sy) => `<li>${sy}</li>`).join("")}
               </ul>
@@ -66,7 +66,7 @@ export function meaningsComponent(meaning, index) {
                 !(meaning.antonyms.length === 0)
                   ? `
                   <div class="antonyms text-sm">
-              <p class="italic text-header-text">antonyms</p>
+              <p class="italic text-header-text dark:text-example-dark">antonyms</p>
               <ul class="flex flex-wrap gap-2">
                  ${meaning.antonyms.map((ant) => `<li>${ant}</li>`).join("")}
               </ul>
@@ -85,8 +85,8 @@ export function definitionsComponent(definition) {
             ${
               definition.example
                 ? `<div class="example pl-2 italic text-border">
-              <p class="text-header-text text-sm">example</p>
-              ${definition.example ? `<p class="text-base">${definition.example}</p>` : ""}
+              <p class="text-header-text text-sm dark:text-example-dark">example</p>
+              ${definition.example ? `<p class="text-base dark:text-example-dark">${definition.example}</p>` : ""}
             </div>`
                 : ""
             }
@@ -95,7 +95,7 @@ export function definitionsComponent(definition) {
                 !(definition.synonyms.length === 0)
                   ? `
                   <div class="synonyms text-sm">
-              <p class="italic text-header-text">synonyms</p>
+              <p class="italic text-header-text dark:header-example-dark">synonyms</p>
               <ul class="flex flex-wrap gap-2">
                 ${definition.synonyms.map((sy) => `<li>${sy}</li>`).join("")}
               </ul>
@@ -107,7 +107,7 @@ export function definitionsComponent(definition) {
                 !(definition.antonyms.length === 0)
                   ? `
                   <div class="antonyms text-sm">
-              <p class="italic text-header-text">antonyms</p>
+              <p class="italic text-header-text dark:header-example-dark">antonyms</p>
               <ul class="flex flex-wrap gap-2">
                  ${definition.antonyms.map((ant) => `<li>${ant}</li>`).join("")}
               </ul>

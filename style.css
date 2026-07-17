@@ -11,6 +11,14 @@
   --color-secondary-bg: #fdf1e2;
   --color-error: #e46767;
 
+  /* dark mode */
+  --color-page-bg-dark: #032130;
+  --color-header-text-dark: #06a5a7;
+  --color-border-dark: #06a5a7;
+  --color-secondary-bg-dark: #096477;
+  --color-text-dark: #e6e6e6;
+  --color-example-dark: #7ecdb5;
+
   --font-header: "Merienda", cursive;
   --font-search: "Playwrite NZ", cursive;
   --font-search-word: "IM Fell English", serif;

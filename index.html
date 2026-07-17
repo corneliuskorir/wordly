@@ -6,9 +6,9 @@
     <title>Wordly</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body class="body bg-page-bg">
+  <body class="body bg-page-bg dark:bg-page-bg-dark">
     <header
-      class="header flex flex-col pt-5 gap-3 items-center font-header text-header-text"
+      class="header flex flex-col pt-5 gap-3 items-center font-header text-header-text dark:text-header-text-dark"
     >
       <h1 class="text-5xl"><i class="bi bi-book"></i>Wordly</h1>
       <p>We put the diction in dictionary</p>
@@ -17,7 +17,7 @@
     <main class="my-8">
       <div class="search-section w-full flex justify-center">
         <div
-          class="form-area px-4 py-2 bg-secondary-bg border-2 border-border rounded-full shadow-md/20 font-search"
+          class="form-area px-4 py-2 bg-secondary-bg border-2 border-border rounded-full shadow-md/20 font-search dark:bg-secondary-bg-dark dark:border-border-dark dark:text-text-dark"
         >
           <form class="search-form flex gap-1" action="">
             <input
@@ -27,7 +27,9 @@
               autocomplete="off"
               placeholder="Search for a word..."
             />
-            <button class="text-2xl text-border hover:text-header-text">
+            <button
+              class="text-2xl text-border hover:text-header-text dark:text-border-dark"
+            >
               <i class="bi bi-search"></i>
             </button>
           </form>
@@ -36,7 +38,7 @@
 
       <div class="result-section w-full flex justify-center mt-8">
         <div
-          class="result-area flex flex-col gap-5 px-6 py-6 bg-secondary-bg border-2 border-border rounded-lg w-full max-w-1/2 min-w-96"
+          class="result-area flex flex-col gap-5 px-6 py-6 bg-secondary-bg border-2 border-border rounded-lg w-full max-w-1/2 min-w-96 dark:bg-secondary-bg-dark dark:border-border-dark dark:text-text-dark"
         ></div>
       </div>
     </main>
