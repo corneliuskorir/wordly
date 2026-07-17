@@ -2,6 +2,7 @@ import showResult from "./src/resultDisplay";
 
 /* Make sure dom content is available */
 document.addEventListener("DOMContentLoaded", () => {
+  setTheme();
   mountItems();
 });
 
@@ -26,5 +27,44 @@ function mountItems() {
 
     /* clear form */
     event.target.reset();
+  });
+}
+
+function setTheme() {
+  //get the theme toggle button
+  const toggle = document.getElementById("theme-toggle");
+
+  /* check current user theme and set toggle to reflect mode */
+  if (!(localStorage.theme === "light")) {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      toggle.checked = true;
+      localStorage.theme = "dark";
+    }
+  }
+  document.documentElement.classList.toggle(
+    "dark",
+    localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches),
+  );
+
+  toggle.addEventListener("change", (event) => {
+    if (event.target.checked) {
+      localStorage.theme = "dark";
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches),
+      );
+    } else {
+      localStorage.theme = "light";
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches),
+      );
+    }
   });
 }

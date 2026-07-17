@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html class="transition-colors duration-300 ease-in-out" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,11 +7,32 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body class="body bg-page-bg dark:bg-page-bg-dark">
-    <header
-      class="header flex flex-col pt-5 gap-3 items-center font-header text-header-text dark:text-header-text-dark"
-    >
-      <h1 class="text-5xl"><i class="bi bi-book"></i>Wordly</h1>
-      <p>We put the diction in dictionary</p>
+    <header class="relative header flex">
+      <div
+        class="flex flex-col pt-5 w-full gap-3 items-center font-header text-header-text dark:text-header-text-dark"
+      >
+        <h1 class="text-5xl"><i class="bi bi-book"></i>Wordly</h1>
+        <p>We put the diction in dictionary</p>
+      </div>
+
+      <div
+        class="theme-toggle absolute right-0 flex gap-1 md:gap-3 my-2 mx-3 md:my-5 md:mx-8 items-center justif"
+      >
+        <p
+          class="text-header-text dark:text-header-text-dark text-md font-medium sm:text-2xl"
+        >
+          Dark
+        </p>
+        <label
+          class="relative inline-flex items-center cursor-pointer select-none"
+        >
+          <input type="checkbox" id="theme-toggle" class="sr-only peer" />
+
+          <div
+            class="w-10 h-4.5 sm:w-14 sm:h-8 rounded-full peer border-2 border-border dark:border-border-dark peer-checked:after:translate-x-5 sm:peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-05 sm:after:top-1 after:left-1 dark:after:bg-border-dark after:bg-border after:rounded-full after:h-3 after:w-3 sm:after:h-6 sm:after:w-6 after:transition-all"
+          ></div>
+        </label>
+      </div>
     </header>
 
     <main class="my-8">

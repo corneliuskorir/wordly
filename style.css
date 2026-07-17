@@ -4,6 +4,8 @@
 
 @import "bootstrap-icons";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-page-bg: #e2d5c5;
   --color-header-text: #35887e;
