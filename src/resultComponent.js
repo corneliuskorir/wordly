@@ -21,17 +21,8 @@ export function resultComponent(result, index) {
     ${result.word}
   </div>
 
-  <div class="phonetics flex w-full gap-3 mt-5 italic">
-    ${result.phonetics
-      .map(
-        (phon) => `
-    <div class="flex gap-2 items-center">
-      <i class="bi bi-volume-up"></i>
-      <span>${phon.text}</span>
-    </div>
-    `,
-      )
-      .join("")}
+  <div class="phonetics-${index} flex w-full gap-3 mt-5 italic">
+    
   </div>
 
   <div class="meanings-${index} w-full flex flex-col gap-5 px-5 mt-5">
@@ -40,6 +31,18 @@ export function resultComponent(result, index) {
 
 </div>
 `;
+}
+
+/* display phoenetics and play the pronounciation */
+export function phoeneticsComponent(phon, index) {
+  return `
+    <div class="flex gap-2 items-center">
+            <button id="phonetics-${index}" data-audio="${phon.audio}" class="dark:hover:text-border-dark hover:text-border">
+              <i class="bi bi-volume-up text-xl"></i>
+            </button>
+            <span>${phon.text ? phon.text : ""}</span>
+          </div>
+    `;
 }
 
 /* display individual meanings */
